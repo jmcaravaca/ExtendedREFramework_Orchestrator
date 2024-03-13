@@ -3,12 +3,11 @@
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="io_TransactionItem" Type="InOutArgument(sd:DataRow)" />
     <x:Property Name="io_dt_TransactionData" Type="InOutArgument(sd:DataTable)" />
-    <x:Property Name="in_dict_TransactionData" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1033,1498</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1207,1007</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="66">
@@ -110,7 +109,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="400,1433" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="496,942" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(ui:OrchestratorJob)" Name="jobsNow" />
     </Sequence.Variables>
@@ -120,8 +119,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:GetJobs DisplayName="Get Jobs" Filter="[String.Format(in_Config(&quot;JobFilter&quot;).ToString, in_Config(&quot;ProcessNameToCheck&quot;).ToString)]" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,467" sap2010:WorkflowViewState.IdRef="GetJobs_1" Result="[jobsNow]">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:GetJobs FilterBuilder="{x:Null}" DisplayName="Get Jobs" Filter="[String.Format(in_Config(&quot;JobFilter&quot;).ToString, in_Config(&quot;ProcessNameToCheck&quot;).ToString)]" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="GetJobs_1" Result="[jobsNow]">
       <ui:GetJobs.Skip>
         <InArgument x:TypeArguments="x:Int32" />
       </ui:GetJobs.Skip>
@@ -132,8 +131,8 @@
         <InArgument x:TypeArguments="x:Int32" />
       </ui:GetJobs.Top>
     </ui:GetJobs>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="338,75" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Add other checks and business logic (if required) before starting a job" />
-    <Assign DisplayName="Assign Filter Jobs Running and Pending" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="434,75" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Add other checks and business logic (if required) before starting a job" />
+    <Assign DisplayName="Assign Filter Jobs Running and Pending" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:IEnumerable(ui:OrchestratorJob)">[jobsNow]</OutArgument>
       </Assign.To>
@@ -141,7 +140,7 @@
         <InArgument x:TypeArguments="scg:IEnumerable(ui:OrchestratorJob)">[jobsNow.Where(Function(item) item.State.ToString = "Pending" orelse item.State.ToString = "Running")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:StartJob ArgumentsVariable="{x:Null}" NumberOfRobots="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Start Job" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,365" sap2010:WorkflowViewState.IdRef="StartJob_1" JobPriority="Normal" ModernFolder="True" ProcessName="[in_Config(&quot;ProcessNameToLaunch&quot;).ToString]" ResumeOnSameContext="False">
+    <ui:StartJob ArgumentsVariable="{x:Null}" JobId="{x:Null}" NumberOfRobots="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Start Job" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="StartJob_1" JobPriority="Normal" ModernFolder="True" ProcessName="[in_Config(&quot;ProcessNameToLaunch&quot;).ToString]" ResumeOnSameContext="False">
       <ui:StartJob.Arguments>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:StartJob.Arguments>

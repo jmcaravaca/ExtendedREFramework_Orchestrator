@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>584,825</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1168,1029.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Get_Workflow_Path_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -76,7 +76,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get relative path of Workflow where exception originally happened&#xA;&#xA;INPUT:&#xA;in_Exception:  &#xA;OUTPUT:&#xA;out_strWorkflowFile: relative path of Workflow where exception originally happened" DisplayName="Get_Workflow_Path" sap:VirtualizedContainerService.HintSize="594,760" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get relative path of Workflow where exception originally happened&#xA;&#xA;INPUT:&#xA;in_Exception:  &#xA;OUTPUT:&#xA;out_strWorkflowFile: relative path of Workflow where exception originally happened" DisplayName="Get_Workflow_Path" sap:VirtualizedContainerService.HintSize="594.6666666666666,964.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Object" Name="faultedDetails" />
     </Sequence.Variables>
@@ -86,15 +86,16 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut sap2010:Annotation.AnnotationText="Doesn't work in Windows" DisplayName="Dotnet4.7" sap:VirtualizedContainerService.HintSize="532,425" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:LogMessage DisplayName="Log Message Exception workflow path" sap:VirtualizedContainerService.HintSize="532.6666666666666,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting exception workflow path&quot;]" />
+    <ui:CommentOut sap2010:Annotation.AnnotationText="Doesn't work in Windows" DisplayName="Dotnet4.7" sap:VirtualizedContainerService.HintSize="532.6666666666666,432" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,315" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,321.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign Faulted Details" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign DisplayName="Assign Faulted Details" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Object">[faultedDetails]</OutArgument>
             </Assign.To>
@@ -102,7 +103,7 @@
               <InArgument x:TypeArguments="x:Object">[in_Exception.Data("FaultedDetails")]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign Workflow Path" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign DisplayName="Assign Workflow Path OLD" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_strWorkflowFile]</OutArgument>
             </Assign.To>
@@ -118,7 +119,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <Assign DisplayName="Assign Workflow Path" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Assign Workflow Path" sap:VirtualizedContainerService.HintSize="532.6666666666666,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_strWorkflowFile]</OutArgument>
       </Assign.To>
