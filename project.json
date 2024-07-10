@@ -1,7 +1,7 @@
 {
-  "name": "ExtendedREFrameworkTemplate_Dispatcher",
+  "name": "ExtendedREFrameworkTemplate_Orchestrator",
   "projectId": "8a49d03f-809e-4727-ba52-e57b2bc862e8",
-  "description": "REFramework customizado para proyecto. Template para procesos auxiliares de \"dispatcher\": Procesos que revisan si hay que relanzar un job",
+  "description": "REFramework customizado para proyecto. Template para procesos auxiliares de \"Orchestrator\": Procesos que revisan si hay que relanzar un job o hacer control en Orchestrator",
   "main": "Main.xaml",
   "dependencies": {
     "QueueItemExtensions": "[3.0.3]",
@@ -25,13 +25,13 @@
   ],
   "schemaVersion": "4.0",
   "studioVersion": "22.10.5.0",
-  "projectVersion": "2.0.0",
+  "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
     "isPausable": true,
     "isAttended": false,
-    "requiresUserInteraction": true,
+    "requiresUserInteraction": false,
     "supportsPersistence": false,
     "workflowSerialization": "DataContract",
     "excludedLoggedData": [
@@ -112,7 +112,7 @@
   ],
   "isTemplate": true,
   "templateProjectData": {
-    "defaultProjectDescription": "REFramework customizado para proyecto. Template para procesos auxiliares de \"dispatcher\": Procesos que revisan si hay que relanzar un job",
+    "defaultProjectDescription": "REFramework customizado para proyecto. Template para procesos auxiliares de \"Orchestrator\": Procesos que revisan si hay que relanzar un job o hacer control en Orchestrator",
     "defaultProjectName": "ExtendedREFrameworkTemplate_Dispatcher"
   },
   "publishData": {},
